@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  orb-tools: circleci/orb-tools@12.1
+  orb-tools: circleci/orb-tools@12.4
 
 workflows:
   lint-pack:
@@ -15,9 +15,9 @@ workflows:
             tags:
               only: /.*/
       - orb-tools/publish:
-          orb-name: cci-gh-api-testing/internal-utils
-          vcs-type: << pipeline.project.type >>
-          pub-type: production
+          orb_name: cci-gh-api-testing/internal-utils
+          vcs_type: << pipeline.project.type >>
+          pub_type: production
           requires:
             - orb-tools/lint
             - orb-tools/pack
