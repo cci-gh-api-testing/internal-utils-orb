@@ -1,0 +1,7 @@
+version: 2.1
+
+description: |
+  Private internal utilities orb for migration testing.
+
+display:
+  home_url: https://github.com/cci-gh-api-testing/internal-utils-orb

@@ -1,0 +1,8 @@
+description: Run internal tests
+docker:
+  - image: cimg/base:current
+steps:
+  - setup-env
+  - run:
+      name: Run internal tests
+      command: echo "Internal tests passed. APP_ENV=$APP_ENV"

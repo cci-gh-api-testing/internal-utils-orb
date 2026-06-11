@@ -1,0 +1,9 @@
+description: Run a health check
+parameters:
+  service_url:
+    type: string
+    default: "http://localhost:8080/health"
+steps:
+  - run:
+      name: Health check
+      command: echo "Checking health at << parameters.service_url >>... OK"

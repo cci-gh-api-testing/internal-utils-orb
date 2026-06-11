@@ -1,0 +1,7 @@
+description: Set up common environment
+steps:
+  - run:
+      name: Setup environment
+      command: |
+        echo "Setting up internal environment..."
+        echo "export APP_ENV=internal" >> "$BASH_ENV"

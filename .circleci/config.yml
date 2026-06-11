@@ -1,0 +1,29 @@
+version: 2.1
+
+orbs:
+  orb-tools: circleci/orb-tools@12.1
+
+workflows:
+  lint-pack:
+    jobs:
+      - orb-tools/lint:
+          filters:
+            tags:
+              only: /.*/
+      - orb-tools/pack:
+          filters:
+            tags:
+              only: /.*/
+      - orb-tools/publish:
+          orb-name: cci-gh-api-testing/internal-utils
+          vcs-type: << pipeline.project.type >>
+          pub-type: production
+          requires:
+            - orb-tools/lint
+            - orb-tools/pack
+          context: orb-publishing
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+            branches:
+              ignore: /.*/
